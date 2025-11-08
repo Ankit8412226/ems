@@ -14,15 +14,20 @@ export const LoginForm = ({ onForgotPassword, onLogin }) => {
   };
 
   return (
-    <div className="w-full max-w-md bg-white rounded-2xl shadow-xl p-8">
+    <div className="w-full min-w-md bg-white rounded-2xl shadow-xl p-10">
+      {/* 🔹 Logo Section */}
       <div className="flex justify-center mb-6">
-        <div className="w-20 h-20 rounded-full bg-gradient-to-br from-purple-600 to-pink-500 flex items-center justify-center">
-          <div className="w-10 h-10 rounded-full bg-white"></div>
-        </div>
+        <img
+          src="/Orga Logo.svg"  
+          alt="Logo"
+          className="w-20 h-20 object-contain" 
+        />
       </div>
-      
+
       <h1 className="text-3xl font-bold text-center mb-2">Welcome to Orga</h1>
-      <p className="text-gray-500 text-center mb-6">Please Log in to your account</p>
+      <p className="text-gray-500 text-center mb-6">
+        Please Log in to your account
+      </p>
 
       <InputField
         type="email"
@@ -41,7 +46,11 @@ export const LoginForm = ({ onForgotPassword, onLogin }) => {
       />
 
       <div className="mb-6">
-        <Button text="Log in" onClick={handleSubmit} disabled={!email || !password} />
+        <Button
+          text="Log in"
+          onClick={handleSubmit}
+          disabled={!email || !password}
+        />
       </div>
 
       <button

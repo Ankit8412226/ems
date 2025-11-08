@@ -1,21 +1,37 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import Login from './assets/pages/login'
-import AuthPage from './assets/pages/AuthPage'
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import AuthPage from "./assets/pages/AuthPage";
+import EmployeeDirectory from "./assets/pages/EmployeeDirectory";
+
+// ✅ Protected Route component
+const ProtectedRoute = ({ isAuthenticated, children }) => {
+  if (!isAuthenticated) {
+    return <Navigate to="/" replace />;
+  }
+  return children;
+};
 
 function App() {
-  const [count, setCount] = useState(0)
+  
+  const isAuthenticated = localStorage.getItem("isLoggedIn") === "true";
 
   return (
-    <>
-      <div>
-        {/* <Login /> */}
-        <AuthPage />
-      </div>
-    </>
-  )
+    <Router>
+      <Routes>
+        {/* Public Route */}
+        <Route path="/" element={<AuthPage />} />
+
+        {/* Protected Route */}
+        <Route
+          path="/employee"
+          element={
+            <ProtectedRoute isAuthenticated={isAuthenticated}>
+              <EmployeeDirectory />
+            </ProtectedRoute>
+          }
+        />
+      </Routes>
+    </Router>
+  );
 }
 
-export default App
+export default App;

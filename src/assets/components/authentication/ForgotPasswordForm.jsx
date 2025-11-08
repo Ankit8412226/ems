@@ -13,16 +13,21 @@ export const ForgotPasswordForm = ({ onGetLink, onBack }) => {
   };
 
   return (
-    <div className="w-full max-w-md bg-white rounded-2xl shadow-xl p-8">
+    <div className="w-full max-w-lg bg-white rounded-2xl shadow-xl p-10">
+      {/* 🔹 Same Logo as LoginForm */}
       <div className="flex justify-center mb-6">
-        <div className="w-20 h-20 rounded-full bg-gradient-to-br from-purple-600 to-pink-500 flex items-center justify-center">
-          <div className="w-10 h-10 rounded-full bg-white"></div>
-        </div>
+        <img
+          src="/Orga Logo.svg"  // your logo path
+          alt="Logo"
+          className="w-20 h-20 object-contain"
+        />
       </div>
-      
-      <h1 className="text-3xl font-bold text-center mb-2">Forgot Your Password?</h1>
+
+      <h1 className="text-3xl font-bold text-center mb-2">
+        Forgot Your Password?
+      </h1>
       <p className="text-gray-500 text-center mb-6">
-        A link will be sent to your mail to help your<br />reset your password.
+        A link will be sent to your mail to help you<br />reset your password.
       </p>
 
       <InputField

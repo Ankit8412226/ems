@@ -5,12 +5,12 @@ const Login = () => {
 
   return (
     <div
-      className="w-full h-full flex items-center justify-center bg-cover bg-center relative overflow-hidden"
+      className="w-full h-screen flex items-center justify-center bg-cover bg-center relative overflow-hidden"
       style={{
-        backgroundImage: "url('/bg.svg')", // 🔹 Your background image path
+        backgroundImage: "url('/bg.svg')", // ✅ Make sure this is in public/
       }}
     >
-      {/* Background Shapes */}
+      {/* Decorative Background Shapes */}
       <img
         src="/shape1.png"
         alt="decor shape 1"
@@ -24,7 +24,7 @@ const Login = () => {
 
       {/* Main Auth Card */}
       <div className="bg-white bg-opacity-90 backdrop-blur-md shadow-2xl rounded-2xl w-[90%] max-w-md p-8 relative z-10">
-        {/* Logo & Title */}
+        {/* Logo & Title Section */}
         <div className="flex flex-col items-center mb-6">
           <div className="w-14 h-14 bg-gradient-to-r from-pink-500 to-purple-600 rounded-full flex items-center justify-center mb-3">
             <div className="w-8 h-8 bg-white rounded-full"></div>

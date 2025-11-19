@@ -28,7 +28,7 @@ export default function Footer() {
           Orga
         </h3>
 
-        <ul className="flex flex-col gap-2 text-[#1B223C] text-[18px]">
+        <ul className="flex flex-col gap-2 text-[#1B223C] font-nunito text-[18px]">
           <li>Book a Demo</li>
           <li>Pricing</li>
           <li>Contact Us</li>
@@ -41,7 +41,7 @@ export default function Footer() {
           Use Cases
         </h3>
 
-        <ul className="flex flex-col gap-2 text-[#1B223C] text-[18px]">
+        <ul className="flex flex-col gap-2 text-[#1B223C] font-nunito text-[18px]">
           <li>Project Management</li>
           <li>HRMS</li>
           <li>Finance Management</li>
@@ -55,7 +55,7 @@ export default function Footer() {
           Solutions
         </h3>
 
-        <ul className="flex flex-col gap-2 text-[#1B223C] text-[18px]">
+        <ul className="flex flex-col gap-2 text-[#1B223C] font-nunito text-[18px]">
           <li>Project Organizer</li>
           <li>Online Project Board</li>
           <li>Task board</li>

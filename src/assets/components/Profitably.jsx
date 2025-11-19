@@ -1,6 +1,6 @@
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 
-export default function Finance() {
+export default function Profitablity() {
   return (
     <div className="bg-white p-6 md:p-[60px] grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12">
 
@@ -9,10 +9,10 @@ export default function Finance() {
 
         {/* Title + Description */}
         <div className="flex flex-col items-center md:items-start text-center md:text-left gap-3">
-          <h1 className="text-[#292D34] font-poppins text-[32px] md:text-[48px] font-semibold leading-tight">
-            Stay on Top of Your
+          <h1 className="text-[#292D34] font-poppins text-[32px] md:text-[48px] font-semibold leading-tight max-w-[636px]">
+          Deliver Projects on Time and
             <span className="bg-linear-to-r from-[#7CF38D] to-[#50AA18] bg-clip-text text-transparent block">
-              Finances
+            Profitably
             </span>
           </h1>
 

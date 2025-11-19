@@ -45,7 +45,7 @@ export default function FeaturesSection() {
 
 
                 <div className="text-center mb-12">
-                    <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                    <h1 className="text-5xl md:text-5xl font-bold text-gray-900 mb-4">
                         Everything your team<br />needs in <span className="text-green-500">one place</span>
                     </h1>
                     <p className="text-gray-500 max-w-2xl mx-auto">

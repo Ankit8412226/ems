@@ -1,9 +1,15 @@
 import { Navigate, BrowserRouter as Router } from "react-router-dom";
+import Attendnce from "./assets/components/Attendence";
+import Customers from "./assets/components/Customers";
 import FeaturesSection from "./assets/components/FeaturesSection";
 import Finance from "./assets/components/Finance";
+import Footer from "./assets/components/Footer";
 import HeroSection from "./assets/components/HeroSection";
-import Navbar from "./assets/components/Navbar";
 import HowitWorks from "./assets/components/howitWorks";
+import IntegrationSection from "./assets/components/IntegrationSection";
+import Navbar from "./assets/components/Navbar";
+import PricingSection from "./assets/components/Price";
+import Profitablity from "./assets/components/Profitably";
 
 // Protected Route
 const ProtectedRoute = ({ children }) => {
@@ -34,6 +40,12 @@ function App() {
       <FeaturesSection />
       <HowitWorks/>
       <Finance/>
+      <Attendnce />
+      <Profitablity />
+      <Customers />
+      <PricingSection />
+      <IntegrationSection />
+      <Footer/>
     </div>
 
   </div>

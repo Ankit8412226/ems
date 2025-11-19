@@ -1,18 +1,27 @@
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 
-export default function Finance() {
+export default function Attendnce() {
   return (
     <div className="bg-white p-6 md:p-[60px] grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12">
 
-      {/* Left Section */}
+      {/* Left Image */}
+      <div className="bg-gray-100 p-4 md:p-6 rounded-xl flex justify-center">
+        <img
+          src="./finance.png"
+          alt="finance"
+          className="w-full max-w-sm md:max-w-full bg-white rounded-lg"
+        />
+      </div>
+
+      {/* Right Content */}
       <div className="flex flex-col items-center md:items-start gap-6 md:gap-4">
 
-        {/* Title + Description */}
+        {/* Heading + Paragraph */}
         <div className="flex flex-col items-center md:items-start text-center md:text-left gap-3">
           <h1 className="text-[#292D34] font-poppins text-[32px] md:text-[48px] font-semibold leading-tight">
-            Stay on Top of Your
-            <span className="bg-linear-to-r from-[#7CF38D] to-[#50AA18] bg-clip-text text-transparent block">
-              Finances
+            Simplify HR, Payroll &
+            <span className="block bg-linear-to-r from-[#7CF38D] to-[#50AA18] bg-clip-text text-transparent">
+              Attendance
             </span>
           </h1>
 
@@ -21,7 +30,7 @@ export default function Finance() {
           </p>
         </div>
 
-        {/* Features */}
+        {/* Feature List */}
         <div className="flex flex-col gap-4 mt-2 w-full">
 
           {[
@@ -29,9 +38,12 @@ export default function Finance() {
             "Automated invoicing & billing",
             "Multi-currency and tax compliance",
             "Real-time budgeting & forecasting"
-          ].map((item, i) => (
-            <div key={i} className="flex items-start gap-3 w-full">
-              <CheckCircle2 size={28} className="text-white fill-[#756FCC]" />
+          ].map((item, index) => (
+            <div key={index} className="flex items-start gap-3">
+              <CheckCircle2
+                size={28}
+                className="text-white fill-[#756FCC]"
+              />
               <p className="text-[#090909] font-dmsans text-[18px] md:text-[24px] font-semibold leading-snug">
                 {item}
               </p>
@@ -47,12 +59,6 @@ export default function Finance() {
         </button>
 
       </div>
-
-      {/* Right Image */}
-      <div className="bg-gray-100 p-4 md:p-6 rounded-xl flex justify-center">
-        <img src="./finance.png" alt="finance" className="w-full max-w-sm md:max-w-full bg-white rounded-lg" />
-      </div>
-
     </div>
   );
 }

@@ -1,35 +1,42 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import AuthPage from "./assets/pages/AuthPage";
 import EmployeeDirectory from "./assets/pages/EmployeeDirectory";
+import Navbar from "./assets/components/Navbar"; 
+import HeroSection from "./assets/components/HeroSection";
+import FeaturesSection from "./assets/components/FeaturesSection";
 
-// ✅ Protected Route component
-const ProtectedRoute = ({ isAuthenticated, children }) => {
-  if (!isAuthenticated) {
-    return <Navigate to="/" replace />;
-  }
-  return children;
+// Protected Route
+const ProtectedRoute = ({ children }) => {
+  const isAuthenticated = localStorage.getItem("isLoggedIn") === "true";
+  return isAuthenticated ? children : <Navigate to="/" replace />;
 };
 
 function App() {
-  
   const isAuthenticated = localStorage.getItem("isLoggedIn") === "true";
 
   return (
     <Router>
-      <Routes>
-        {/* Public Route */}
+
+      {/* Navbar should be OUTSIDE Routes */}
+      <Navbar /> 
+      <HeroSection />
+      <FeaturesSection />
+
+      {/* <Routes>
+        {/* Public Route 
         <Route path="/" element={<AuthPage />} />
 
-        {/* Protected Route */}
+        {/* Protected Route 
         <Route
           path="/employee"
           element={
-            <ProtectedRoute isAuthenticated={isAuthenticated}>
+            <ProtectedRoute>
               <EmployeeDirectory />
             </ProtectedRoute>
           }
         />
-      </Routes>
+
+      </Routes> */}
     </Router>
   );
 }

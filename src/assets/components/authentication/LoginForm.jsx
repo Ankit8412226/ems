@@ -24,9 +24,9 @@ export const LoginForm = ({ onForgotPassword, onLogin }) => {
         />
       </div>
 
-      <h1 className="text-3xl font-bold text-center mb-2">Welcome to Orga</h1>
+      <h1 className="text-3xl font-bold text-center mb-2">Welcome to Orga </h1>
       <p className="text-gray-500 text-center mb-6">
-        Please Log in to your account
+        Please Log in to your account im Akriti
       </p>
 
       <InputField

@@ -31,7 +31,7 @@ export const ResetPasswordForm = ({ onSubmit, onBack }) => {
 
       <div className="mb-4">
         <label className="block text-sm font-medium text-gray-700 mb-2">
-          New Password
+          Hello your New Password is Akriti
         </label>
         <input
           type="password"

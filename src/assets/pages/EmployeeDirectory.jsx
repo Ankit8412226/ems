@@ -88,7 +88,7 @@ const EmployeeDirectory = () => {
             (label) => (
               <button
                 key={label}
-                className="flex items-center gap-2 px-5 py-2.5 rounded-[200px] bg-[#EEECFF] text-[#7D1EDB] text-sm font-medium hover:bg-[#EEECFF] transition-colors"
+                className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#EEECFF] text-[#7D1EDB] text-sm font-medium hover:bg-[#EEECFF] transition-colors"
               >
                 {label}
                 <ChevronDown className="w-4 h-4" />

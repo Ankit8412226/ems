@@ -1,21 +1,15 @@
-import React from "react";
 import { ArrowRight } from "lucide-react";
 
 
 export default function HeroSection() {
   return (
-    <section className="relative w-full pt-20 pb-20 flex flex-col items-center text-center">
-        <img
-        src="/Grid_bg.svg"
-        alt="grid bg"
-        className="absolute inset-0 w-full h-full object-cover"
-      />
+    <section className="flex flex-col items-center text-center pt-20">
 
       {/* Headline */}
-      <h1 className="text-2xl md:text-3xl font-poppins font-bold text-gray-900 leading-snug max-w-3xl">
-        Manage your <span className="text-black">Team, Tasks &</span>
+      <h1 className="text-5xl md:text-3xl font-poppins font-bold text-gray-900 leading-14">
+        Manage your Team, Tasks &
         <br />
-        <span className="bg-gradient-to-r from-[#C65CF4] to-[#96FFB2] text-transparent bg-clip-text">
+        <span className="bg-linear-to-r from-[#C65CF4] to-[#96FFB2] text-transparent bg-clip-text">
           Projects in one place
         </span>
       </h1>

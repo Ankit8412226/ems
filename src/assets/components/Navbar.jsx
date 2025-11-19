@@ -1,20 +1,13 @@
-import React, { useState } from "react";
-import { Menu, ChevronDown, X } from "lucide-react";
+import { ChevronDown, Menu, X } from "lucide-react";
+import { useState } from "react";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 w-full h-20 flex items-center justify-between px-8 bg-white z-50 shadow-sm">
-      
-      {/* Background Grid Image */}
-      <div className="absolute inset-0 -z-8">
-        <img
-          src="/Grid_bg.svg"
-          alt="grid background"
-          className="w-full h-full object-cover"
-        />
-      </div>
+<nav className="fixed top-0 left-0 w-full h-20 flex items-center justify-between px-8
+    z-50 bg-white/20 backdrop-blur-lg border-b border-white/10">
+
 
       {/* Logo */}
       <div className="flex items-center gap-2 z-20">
@@ -22,19 +15,19 @@ export default function Navbar() {
       </div>
 
       {/* Desktop Menu */}
-      <div className="hidden md:flex items-center gap-8 text-gray-700 font-medium">
+      <div className="hidden md:flex items-center gap-8 text-[#292D34] font-medium">
 
-        <div className="flex items-center gap-1 cursor-pointer hover:text-[#756FCC] transition">
+        <div className="flex items-center gap-1 cursor-pointer text-[#292D34] hover:text-[#756FCC] transition">
           Use Cases <ChevronDown size={16} />
         </div>
 
-        <div className="flex items-center gap-1 cursor-pointer hover:text-[#756FCC] transition">
+        <div className="flex items-center gap-1 cursor-pointer text-[#292D34] hover:text-[#756FCC] transition">
           Solutions <ChevronDown size={16} />
         </div>
 
-        <div className="cursor-pointer hover:text-[#756FCC] transition">How it works</div>
-        <div className="cursor-pointer hover:text-[#756FCC] transition">Pricing</div>
-        <div className="cursor-pointer hover:text-[#756FCC] transition">Book a Demo</div>
+        <div className="cursor-pointer text-[#292D34] hover:text-[#756FCC] transition">How it works</div>
+        <div className="cursor-pointer text-[#292D34] hover:text-[#756FCC] transition">Pricing</div>
+        <div className="cursor-pointer text-[#292D34] hover:text-[#756FCC] transition">Book a Demo</div>
 
       </div>
 
@@ -63,29 +56,29 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       <div
-        className={`fixed top-20 left-0 w-full bg-white shadow-lg md:hidden transition-all duration-300 ease-in-out ${
+        className={`fixed top-20 left-0 w-full bg-white shadow-lg md:hidden transition-all duration-300 ease-in-out h-screen ${
           isMenuOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0 overflow-hidden"
         }`}
       >
         <div className="flex flex-col px-8 py-6 space-y-4">
-          
-          <div className="flex items-center gap-2 cursor-pointer hover:text-[#756FCC] transition py-2 border-b border-gray-100">
+
+          <div className="flex items-center gap-2 cursor-pointer text-[#292D34] hover:text-[#756FCC] transition py-2 border-b border-gray-100">
             Use Cases <ChevronDown size={16} />
           </div>
 
-          <div className="flex items-center gap-2 cursor-pointer hover:text-[#756FCC] transition py-2 border-b border-gray-100">
+          <div className="flex items-center gap-2 cursor-pointer text-[#292D34] hover:text-[#756FCC] transition py-2 border-b border-gray-100">
             Solutions <ChevronDown size={16} />
           </div>
 
-          <div className="cursor-pointer hover:text-[#756FCC] transition py-2 border-b border-gray-100">
+          <div className="cursor-pointer text-[#292D34] hover:text-[#756FCC] transition py-2 border-b border-gray-100">
             How it works
           </div>
 
-          <div className="cursor-pointer hover:text-[#756FCC] transition py-2 border-b border-gray-100">
+          <div className="cursor-pointer text-[#292D34] hover:text-[#756FCC] transition py-2 border-b border-gray-100">
             Pricing
           </div>
 
-          <div className="cursor-pointer hover:text-[#756FCC] transition py-2 border-b border-gray-100">
+          <div className="cursor-pointer text-[#292D34] hover:text-[#756FCC] transition py-2 border-b border-gray-100">
             Book a Demo
           </div>
 

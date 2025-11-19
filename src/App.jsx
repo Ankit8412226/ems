@@ -1,9 +1,9 @@
-import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
-import AuthPage from "./assets/pages/AuthPage";
-import EmployeeDirectory from "./assets/pages/EmployeeDirectory";
-import Navbar from "./assets/components/Navbar"; 
-import HeroSection from "./assets/components/HeroSection";
+import { Navigate, BrowserRouter as Router } from "react-router-dom";
 import FeaturesSection from "./assets/components/FeaturesSection";
+import Finance from "./assets/components/Finance";
+import HeroSection from "./assets/components/HeroSection";
+import Navbar from "./assets/components/Navbar";
+import HowitWorks from "./assets/components/howitWorks";
 
 // Protected Route
 const ProtectedRoute = ({ children }) => {
@@ -12,32 +12,33 @@ const ProtectedRoute = ({ children }) => {
 };
 
 function App() {
-  const isAuthenticated = localStorage.getItem("isLoggedIn") === "true";
+
 
   return (
-    <Router>
+<Router>
+  <div className="relative min-h-screen w-full">
 
-      {/* Navbar should be OUTSIDE Routes */}
-      <Navbar /> 
+    {/* Background image for entire page */}
+    <div className="fixed inset-0 -z-10">
+      <img
+        src="/Grid_bg.svg"
+        alt="grid background"
+        className="w-full h-full object-cover"
+      />
+    </div>
+
+    {/* Content wrapper */}
+    <div className="pt-20 ">
+      <Navbar />
       <HeroSection />
       <FeaturesSection />
+      <HowitWorks/>
+      <Finance/>
+    </div>
 
-      {/* <Routes>
-        {/* Public Route 
-        <Route path="/" element={<AuthPage />} />
+  </div>
+</Router>
 
-        {/* Protected Route 
-        <Route
-          path="/employee"
-          element={
-            <ProtectedRoute>
-              <EmployeeDirectory />
-            </ProtectedRoute>
-          }
-        />
-
-      </Routes> */}
-    </Router>
   );
 }
 

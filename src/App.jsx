@@ -10,6 +10,8 @@ import IntegrationSection from "./assets/components/IntegrationSection";
 import Navbar from "./assets/components/Navbar";
 import PricingSection from "./assets/components/Price";
 import Profitablity from "./assets/components/Profitably";
+import FreeTrialSection from "./assets/components/FreeTrialSection";
+import TestimonialsSection from "./assets/components/TestimonialsSection";
 
 // Protected Route
 const ProtectedRoute = ({ children }) => {
@@ -22,7 +24,8 @@ function App() {
 
   return (
 <Router>
-  <div className="relative min-h-screen w-full">
+  <div className="relative min-h-screen w-full overflow-x-hidden">
+    
 
     {/* Background image for entire page */}
     <div className="fixed inset-0 -z-10">
@@ -45,6 +48,8 @@ function App() {
       <Customers />
       <PricingSection />
       <IntegrationSection />
+      <FreeTrialSection />
+      <TestimonialsSection />
       <Footer/>
     </div>
 

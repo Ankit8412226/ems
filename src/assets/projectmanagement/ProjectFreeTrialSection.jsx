@@ -1,7 +1,7 @@
 import React from "react";
 import { ArrowRight } from "lucide-react";
 
-export default function FreeTrialSection() {
+export default function ProjectFreeTrialSection() {
     return (
         <div className="w-full flex flex-col items-center py-16 bg-white">
             <div className="w-full max-w-6xl bg-gradient-to-b from-[#AFF6B9] to-[#FFFFFF] rounded-[40px] py-14 relative overflow-hidden">

@@ -6,29 +6,23 @@ export default function TestimonialsSection() {
             <div className="max-w-7xl mx-auto">
 
                 {/* ------------ HEADER ------------ */}
-                <div className="grid grid-cols-1 md:grid-cols-[1.2fr_1fr] gap-6 items-start">
+                <div className="grid grid-cols-1 md:grid-cols-[1.2fr_1fr] gap-6 items-start md:divide-x md:divide-gray-400">
 
                     {/* LEFT TITLE */}
-                    <div>
-                        <h2 className="text-[#2E2E2E] md:text-[44px] font-poppins font-semibold leading-[48px]">
+                    <div className="md:pr-6">
+                        <h2 className="text-[#2E2E2E] text-4xl md:text-[44px] font-[Poppins] font-semibold leading-tight md:leading-[56px]">
                             See how businesses <br />
                             streamline their <br />
-                            <span className="bg-gradient-to-r from-[#7CF38D] to-[#50AA18] bg-clip-text text-transparent font-poppins font-semibold">
+                            <span className="bg-gradient-to-r from-[#7CF38D] to-[#50AA18] bg-clip-text text-transparent font-[Poppins] font-semibold">
                                 operations with us.
                             </span>
                         </h2>
                     </div>
 
-                    {/* RIGHT PARAGRAPH + THIN BORDER */}
-                    <div className="flex items-start gap-6">
-
-                        {/* Vertical line */}
-                        <div className="w-[1px] h-[155px] bg-[#A7A7A7]"></div>
-
-                        {/* Right paragraph */}
-                        <p className="text-[#7C7C7C] text-[15px] leading-[22px] max-w-[300px] font-Nunito mt-12">
-                            Lorem ipsum dolor sit amet consectetur. kshi uenmamet consectetur.
-                            kshi uenmamet.
+                    {/* RIGHT PARAGRAPH */}
+                    <div className="md:pl-6">
+                        <p className="text-[#7C7C7C] text-[15px] leading-[22px] font-[Nunito] mt-15">
+                            Lorem ipsum dolor sit amet consectetur. kshi uemnamet consectetur. kshi uemnamet
                         </p>
                     </div>
                 </div>

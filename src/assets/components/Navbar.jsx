@@ -45,10 +45,31 @@ export default function Navbar() {
           {/* Dropdown Menu */}
           {isUseCasesOpen && (
             <div className="absolute top-8 left-0 bg-white shadow-lg rounded-lg w-56 py-3 z-50 border border-gray-100">
-              <a className="block px-4 py-2 hover:text-[#756FCC] cursor-pointer">Project Management</a>
-              <a className="block px-4 py-2 hover:text-[#756FCC] cursor-pointer">HRMS</a>
-              <a className="block px-4 py-2 hover:text-[#756FCC] cursor-pointer">Support</a>
-              <a className="block px-4 py-2 hover:text-[#756FCC] cursor-pointer">Finance Management</a>
+              <a
+                onClick={() => window.location.href = "/project-management"}
+                className="block px-4 py-2 hover:text-[#756FCC] cursor-pointer"
+              >
+                Project Management
+              </a>
+              <a
+                onClick={() => window.location.href = "/hrms"}
+                className="block px-4 py-2 hover:text-[#756FCC] cursor-pointer"
+              >
+                HRMS
+              </a>
+              <a
+                onClick={() => window.location.href = "/support"}
+                className="block px-4 py-2 hover:text-[#756FCC] cursor-pointer"
+              >
+                Support
+              </a>
+             
+              <a
+                onClick={() => window.location.href = "/finance-mgmt"}
+                className="block px-4 py-2 hover:text-[#756FCC] cursor-pointer"
+              >
+                Finance Management
+              </a>
             </div>
           )}
         </div>
@@ -58,7 +79,7 @@ export default function Navbar() {
           Solutions <ChevronDown size={16} />
         </div>
 
-        <div className="cursor-pointer hover:text-[#756FCC] transition">How it works</div>
+        
         <div className="cursor-pointer hover:text-[#756FCC] transition">Pricing</div>
         <div className="cursor-pointer hover:text-[#756FCC] transition">Book a Demo</div>
       </div>
@@ -104,22 +125,33 @@ export default function Navbar() {
 
               {/* Styled dropdown to match desktop */}
               <div className="mt-2 bg-white shadow-md rounded-lg border border-gray-100 py-2">
-                <div className="px-4 py-2 cursor-pointer hover:bg-gray-100 active:bg-gray-100 focus:bg-gray-100 hover:text-[#756FCC] active:text-[#756FCC] focus:text-[#756FCC]">
+                <div
+                  onClick={() => window.location.href = "/project-management"}
+                  className="px-4 py-2 cursor-pointer hover:bg-gray-100 hover:text-[#756FCC]"
+                >
                   Project Management
                 </div>
-
-                <div className="px-4 py-2 cursor-pointer hover:bg-gray-100 active:bg-gray-100 focus:bg-gray-100 hover:text-[#756FCC] active:text-[#756FCC] focus:text-[#756FCC]">
+                <div
+                  onClick={() => window.location.href = "/hrms"}
+                  className="px-4 py-2 cursor-pointer hover:bg-gray-100 hover:text-[#756FCC]"
+                >
                   HRMS
                 </div>
 
-                <div className="px-4 py-2 cursor-pointer hover:bg-gray-100 active:bg-gray-100 focus:bg-gray-100 hover:text-[#756FCC] active:text-[#756FCC] focus:text-[#756FCC]">
+                <div
+                  onClick={() => window.location.href = "/support"}
+                  className="px-4 py-2 cursor-pointer hover:bg-gray-100 hover:text-[#756FCC]"
+                >
                   Support
                 </div>
 
-                <div className="px-4 py-2 cursor-pointer hover:bg-gray-100 active:bg-gray-100 focus:bg-gray-100 hover:text-[#756FCC] active:text-[#756FCC] focus:text-[#756FCC]">
+               
+                <div
+                  onClick={() => window.location.href = "/finance-mgmt"}
+                  className="px-4 py-2 cursor-pointer hover:bg-gray-100 hover:text-[#756FCC]"
+                >
                   Finance Management
                 </div>
-
               </div>
             </details>
           </div>
@@ -138,8 +170,7 @@ export default function Navbar() {
             </details>
           </div>
 
-          <div className=" flex items-center justify-between border-b border-gray-100 cursor-pointer text-[#292D34] 
-                hover:text-[#756FCC] active:text-[#756FCC] focus:text-[#756FCC] transition  py-2">How it works</div>
+          
           <div className=" flex items-center justify-between border-b border-gray-100 cursor-pointer text-[#292D34] 
                 hover:text-[#756FCC] active:text-[#756FCC] focus:text-[#756FCC] transition  py-2">Pricing</div>
           <div className=" flex items-center justify-between border-b border-gray-100 cursor-pointer text-[#292D34] 

@@ -36,9 +36,9 @@ export default function ProjectFeature() {
 
         {/* Heading Section */}
         <div className="text-center mb-12">
-          <h1 className="text-5xl md:text-5xl font-bold text-gray-900 mb-4">
+          <h1 className="text-5xl md:text-5xl font-semibold font-poppins text-gray-900 mb-4">
             Everything your team <br />
-            needs in <span className="text-green-500">one place</span>
+            needs in <span className="bg-linear-to-r from-[#7CF38D] to-[#50AA18] bg-clip-text text-transparent ">one place</span>
           </h1>
           <p className="text-gray-500 max-w-2xl mx-auto">
             Lorem ipsum dolor sit amet consectetur. kshi uemnamet <br />

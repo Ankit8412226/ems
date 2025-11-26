@@ -4,9 +4,19 @@ import { ArrowRight } from "lucide-react";
 export default function SupportHero() {
   return (
     <section className="flex flex-col items-center text-center pt-20">
+      <img
+        src="/Ellipse 492 (1).svg"
+        alt="bg-shape"
+        className="
+           absolute
+           top-[165px]
+            left-[200px]
+          rotate-90
+          -z-9"
+      />
 
       {/* Headline */}
-      <h1 className="text-5xl md:text-5xl font-poppins font-bold text-gray-900 leading-14">
+      <h1 className="text-5xl md:text-5xl font-poppins font-semibold text-gray-900 leading-14">
         Keep Your Customers Happy & Heard
         <br />
         With <span className="bg-linear-to-r from-[#C65CF4] to-[#96FFB2] text-transparent bg-clip-text">

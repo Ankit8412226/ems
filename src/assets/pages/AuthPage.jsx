@@ -1,129 +1,88 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { LoginForm } from "../components/authentication/LoginForm";
-import { ForgotPasswordForm } from "../components/authentication/ForgotPasswordForm";
-import { ResetPasswordForm } from "../components/authentication/ResetPasswordForm";
-import { Button } from "../components/authentication/Button";
+import React, { useState } from "react"; 
+import { useSearchParams } from "react-router-dom";
+import { LoginForm } from "../components/LoginForm"; 
+import { RegisterForm } from "../components/RegisterForm"; 
+import { ForgotPasswordForm } from "../components/ForgotPasswordForm"; 
+import { ResetPasswordForm } from "../components/ResetPasswordForm"; 
 
-const AuthPage = () => {
-  const [authState, setAuthState] = useState({
-    isLoggedIn: false,
-    showForgotPassword: false,
-    showResetPassword: false,
-    user: null,
-  });
+export default function AuthPage() {
+  const [searchParams] = useSearchParams();
+  const mode = searchParams.get("mode") || "login"; 
+  const [verifiedEmail, setVerifiedEmail] = useState(""); // store email for reset
 
-  const navigate = useNavigate();
-
+  // login handler
   const handleLogin = (email, password) => {
-    console.log("Login attempt:", { email, password });
+    console.log("Login success:", email);
     localStorage.setItem("isLoggedIn", "true");
-    localStorage.setItem("userEmail", email);
-    setAuthState({
-      isLoggedIn: true,
-      showForgotPassword: false,
-      showResetPassword: false,
-      user: { email },
-    });
-    navigate("/employee"); 
   };
 
-  const handleLogout = () => {
-    localStorage.removeItem("isLoggedIn");
-    localStorage.removeItem("userEmail");
-    setAuthState({
-      isLoggedIn: false,
-      showForgotPassword: false,
-      showResetPassword: false,
-      user: null,
-    });
-    navigate("/"); 
-  };
-
-  const handleForgotPassword = () => {
-    setAuthState({
-      ...authState,
-      showForgotPassword: true,
-      showResetPassword: false,
-    });
-  };
-
-  const handleGetLink = (email) => {
+  // handle sending reset link
+  const handleSendResetLink = (email) => {
     console.log("Reset link sent to:", email);
-    setAuthState({
-      ...authState,
-      showForgotPassword: false,
-      showResetPassword: true,
-    });
+    // store verified email for reset password
+    setVerifiedEmail(email);
+    window.location.href = "/auth?mode=reset";
   };
 
+  // handle actual password reset
   const handleResetPassword = (newPassword) => {
-    console.log("Password reset successful");
-    setAuthState({
-      isLoggedIn: false,
-      showForgotPassword: false,
-      showResetPassword: false,
-      user: null,
-    });
-  };
-
-  const handleBackToLogin = () => {
-    setAuthState({
-      isLoggedIn: false,
-      showForgotPassword: false,
-      showResetPassword: false,
-      user: null,
-    });
+    console.log("Password reset for:", verifiedEmail, "New password:", newPassword);
+    // After reset, go back to login
+    window.location.href = "/auth?mode=login";
   };
 
   const renderContent = () => {
-    if (authState.isLoggedIn) {
+    if (mode === "login") {
       return (
-        <div className="w-full max-w-md bg-white rounded-2xl shadow-xl p-8 text-center">
-          <h1 className="text-3xl font-bold mb-4">Welcome!</h1>
-          <p className="text-gray-600 mb-6">
-            You are now logged in as {authState.user?.email}
-          </p>
-          <Button text="Logout" onClick={handleLogout} />
-        </div>
-      );
-    }
-
-    if (authState.showResetPassword) {
-      return (
-        <ResetPasswordForm
-          onSubmit={handleResetPassword}
-          onBack={handleBackToLogin}
+        <LoginForm
+          onLogin={handleLogin}
+          onRegister={() => (window.location.href = "/auth?mode=register")}
+          onForgotPassword={() => (window.location.href = "/auth?mode=forgot")}
         />
       );
     }
 
-    if (authState.showForgotPassword) {
+    if (mode === "register") {
+      return (
+        <RegisterForm
+          onLogin={() => (window.location.href = "/auth?mode=login")}
+        />
+      );
+    }
+
+    if (mode === "forgot") {
       return (
         <ForgotPasswordForm
-          onGetLink={handleGetLink}
-          onBack={handleBackToLogin}
+          onGetLink={handleSendResetLink}
+          onBack={() => (window.location.href = "/auth?mode=login")}
         />
       );
     }
 
-    return (
-      <LoginForm
-        onForgotPassword={handleForgotPassword}
-        onLogin={handleLogin}
-      />
-    );
+    if (mode === "reset") {
+      return (
+        <ResetPasswordForm
+          email={verifiedEmail} // pass the verified email for display
+          onSubmit={handleResetPassword}
+          onBack={() => (window.location.href = "/auth?mode=login")}
+        />
+      );
+    }
+
+    return null;
   };
 
   return (
-    <div className="relative min-h-screen flex items-center justify-center p-4 pt-20 overflow-hidden bg-gradient-to-br from-[#a8c0ff] via-[#e0c3fc] to-[#f9f9ff]">
-      {/* Background Elements */}
-      <img src="/bg.svg" alt="Background" className="absolute inset-0 w-full h-full object-cover opacity-70" />
-      <img src="/Arrow_Graphic elements.svg" className="absolute bottom-1 left-8 w-100 h-100 object-contain opacity-90" />
-      <img src="/Graphic elements.svg" alt="Circle" className="absolute top-[10px] right-[450px] w-[240px] h-[240px] object-contain opacity-90 z-0" />
-      <img src="/Graphic elements (1).svg" alt="Circle" className="absolute bottom-[-100px] right-[-100px] w-[400px] h-[400px] object-contain opacity-90" />
+    <div className="relative min-h-screen flex items-center justify-center p-6 overflow-hidden bg-gradient-to-br from-[#a8c0ff] via-[#e0c3fc] to-[#f9f9ff]">
+      
+      {/* Background Artwork */}
+      <img src="/bg.svg" className="absolute inset-0 w-full h-full object-cover opacity-60" />
+      <img src="/Arrow_Graphic elements.svg" className="absolute bottom-1 left-8 w-60 opacity-80" />
+      <img src="/Graphic elements.svg" className="absolute top-[10px] right-[450px] w-[240px] opacity-80" />
+      <img src="/Graphic elements (1).svg" className="absolute bottom-[-100px] right-[-100px] w-[400px] opacity-80" />
 
-      <div className="relative z-10">
+      {/* Main UI */}
+      <div className="relative z-10 flex flex-col items-center w-full max-w-4xl">
         {renderContent()}
         <p className="text-center text-gray-600 mt-6 text-sm">
           Secure login powered by encrypted authentication
@@ -131,6 +90,4 @@ const AuthPage = () => {
       </div>
     </div>
   );
-};
-
-export default AuthPage;
+}

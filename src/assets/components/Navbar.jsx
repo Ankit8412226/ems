@@ -1,13 +1,13 @@
 import { ChevronDown, Menu, X } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isUseCasesOpen, setIsUseCasesOpen] = useState(false);
   const dropdownRef = useRef(null);
+  const navigate = useNavigate();
 
-  // Close dropdown on outside click
   useEffect(() => {
     function handleClickOutside(e) {
       if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
@@ -18,12 +18,22 @@ export default function Navbar() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
+  const goLogin = () => navigate("/auth?mode=login");
+  const goRegister = () => navigate("/auth?mode=register");
+
+  const scrollToHero = () => {
+    const heroSection = document.getElementById("HeroSection");
+    if (heroSection) {
+      heroSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <nav className="fixed top-0 left-0 w-full h-20 flex items-center justify-between px-8
-        z-50 bg-white/20 backdrop-blur-lg border-b border-white/10">
+      z-50 bg-white/20 backdrop-blur-lg border-b border-white/10">
 
       {/* Logo */}
-      <div className="flex items-center gap-2 z-20">
+      <div className="flex items-center gap-2 z-20 cursor-pointer" onClick={scrollToHero}>
         <img src="/Orga Logo (1).svg" alt="Logo" className="h-8" />
       </div>
 
@@ -43,64 +53,57 @@ export default function Navbar() {
             />
           </button>
 
-          {/* Dropdown Menu */}
           {isUseCasesOpen && (
             <div className="absolute top-8 left-0 bg-white shadow-lg rounded-lg w-56 py-3 z-50 border border-gray-100">
-              <a
-                onClick={() => window.location.href = "/project-management"}
-                className="block px-4 py-2 hover:text-[#756FCC] cursor-pointer"
-              >
+              <Link to="/project-management" className="block px-4 py-2 hover:text-[#756FCC] cursor-pointer">
                 Project Management
-              </a>
-              <a
-                onClick={() => window.location.href = "/hrms"}
-                className="block px-4 py-2 hover:text-[#756FCC] cursor-pointer"
-              >
+              </Link>
+              <Link to="/hrms" className="block px-4 py-2 hover:text-[#756FCC] cursor-pointer">
                 HRMS
-              </a>
-              <a
-                onClick={() => window.location.href = "/support"}
-                className="block px-4 py-2 hover:text-[#756FCC] cursor-pointer"
-              >
+              </Link>
+              <Link to="/support" className="block px-4 py-2 hover:text-[#756FCC] cursor-pointer">
                 Support
-              </a>
-
-              <a
-                onClick={() => window.location.href = "/finance-mgmt"}
-                className="block px-4 py-2 hover:text-[#756FCC] cursor-pointer"
-              >
+              </Link>
+              <Link to="/finance-mgmt" className="block px-4 py-2 hover:text-[#756FCC] cursor-pointer">
                 Finance Management
-              </a>
+              </Link>
             </div>
           )}
         </div>
 
         {/* Solutions */}
         <div className="flex items-center gap-1 cursor-pointer text-[#292D34] hover:text-[#756FCC] transition">
-          Solutions <ChevronDown size={16} />
+          Solutions
+          <ChevronDown size={16} />
         </div>
 
+        <Link to="/pricing" className="cursor-pointer hover:text-[#756FCC] transition">
+          Pricing
+        </Link>
 
-        <div className="cursor-pointer hover:text-[#756FCC] transition">Pricing</div>
-        <Link
-          to="/demo"
-          className="cursor-pointer hover:text-[#756FCC] transition"
-        >
+        <Link to="/demo" className="cursor-pointer hover:text-[#756FCC] transition">
           Book a Demo
         </Link>
       </div>
 
       {/* Desktop Buttons */}
       <div className="hidden md:flex items-center gap-4">
-        <button className="px-5 py-2 rounded-lg bg-[#756FCC] text-white shadow-sm hover:opacity-90 transition">
+        <button
+          onClick={goLogin}
+          className="px-5 py-2 rounded-lg bg-[#756FCC] text-white shadow-sm hover:opacity-90 transition"
+        >
           Login
         </button>
-        <button className="px-5 py-2 rounded-lg border border-[#756FCC] text-[#756FCC] hover:bg-[#756FCC] hover:text-white transition">
+
+        <button
+          onClick={goRegister}
+          className="px-5 py-2 rounded-lg border border-[#756FCC] text-[#756FCC] hover:bg-[#756FCC] hover:text-white transition"
+        >
           Get Started
         </button>
       </div>
 
-      {/* Mobile Menu Toggle */}
+      {/* Mobile Toggle */}
       <button
         onClick={() => setIsMenuOpen(!isMenuOpen)}
         className="md:hidden flex items-center justify-center w-10 h-10 rounded-md hover:bg-gray-100 transition-all duration-300 z-20"
@@ -110,97 +113,103 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       <div
-        className={`fixed top-20 left-0 w-full bg-white shadow-lg md:hidden transition-all duration-300 ease-in-out h-screen ${isMenuOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0 overflow-hidden"
-          }`}
+        className={`fixed top-20 left-0 w-full bg-white shadow-lg md:hidden transition-all duration-300 ease-in-out 
+          ${isMenuOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0 overflow-hidden"}`}
       >
         <div className="flex flex-col px-8 py-6 space-y-4">
 
-          {/* Mobile Use Cases Dropdown */}
-          <div className="border-b border-gray-100 pb-2">
-            <details className="group">
-              <summary
-                className="flex items-center justify-between cursor-pointer text-[#292D34] 
-                hover:text-[#756FCC] active:text-[#756FCC] focus:text-[#756FCC] transition py-2"
+          {/* Mobile Use Cases */}
+          <details className="group border-b border-gray-100 pb-2">
+            <summary className="flex items-center justify-between cursor-pointer text-[#292D34] hover:text-[#756FCC] py-2">
+              Use Cases
+              <ChevronDown size={16} className="transition-transform duration-300 group-open:rotate-180" />
+            </summary>
+
+            <div className="mt-2 bg-white shadow-md rounded-lg border border-gray-100 py-2">
+              <Link
+                to="/project-management"
+                onClick={() => setIsMenuOpen(false)}
+                className="px-4 py-2 block hover:bg-gray-100 hover:text-[#756FCC]"
               >
-                Use Cases
-                <ChevronDown
-                  size={16}
-                  className="transition-transform duration-300 group-open:rotate-180"
-                />
-              </summary>
+                Project Management
+              </Link>
 
-              {/* Styled dropdown to match desktop */}
-              <div className="mt-2 bg-white shadow-md rounded-lg border border-gray-100 py-2">
-                <div
-                  onClick={() => window.location.href = "/project-management"}
-                  className="px-4 py-2 cursor-pointer hover:bg-gray-100 hover:text-[#756FCC]"
-                >
-                  Project Management
-                </div>
-                <div
-                  onClick={() => window.location.href = "/hrms"}
-                  className="px-4 py-2 cursor-pointer hover:bg-gray-100 hover:text-[#756FCC]"
-                >
-                  HRMS
-                </div>
+              <Link
+                to="/hrms"
+                onClick={() => setIsMenuOpen(false)}
+                className="px-4 py-2 block hover:bg-gray-100 hover:text-[#756FCC]"
+              >
+                HRMS
+              </Link>
 
-                <div
-                  onClick={() => window.location.href = "/support"}
-                  className="px-4 py-2 cursor-pointer hover:bg-gray-100 hover:text-[#756FCC]"
-                >
-                  Support
-                </div>
+              <Link
+                to="/support"
+                onClick={() => setIsMenuOpen(false)}
+                className="px-4 py-2 block hover:bg-gray-100 hover:text-[#756FCC]"
+              >
+                Support
+              </Link>
 
+              <Link
+                to="/finance-mgmt"
+                onClick={() => setIsMenuOpen(false)}
+                className="px-4 py-2 block hover:bg-gray-100 hover:text-[#756FCC]"
+              >
+                Finance Management
+              </Link>
+            </div>
+          </details>
 
-                <div
-                  onClick={() => window.location.href = "/finance-mgmt"}
-                  className="px-4 py-2 cursor-pointer hover:bg-gray-100 hover:text-[#756FCC]"
-                >
-                  Finance Management
-                </div>
-              </div>
-            </details>
-          </div>
+          {/* Solutions */}
+          <details className="group border-b border-gray-100 pb-2">
+            <summary className="flex items-center justify-between cursor-pointer text-[#292D34] hover:text-[#756FCC] py-2">
+              Solutions
+              <ChevronDown size={16} className="transition-transform duration-300 group-open:rotate-180" />
+            </summary>
+          </details>
 
-          {/* Mobile Solutions */}
-          <div className="border-b border-gray-100 pb-2">
-            <details className="group">
-              <summary className="flex items-center justify-between cursor-pointer text-[#292D34] 
-                hover:text-[#756FCC] active:text-[#756FCC] focus:text-[#756FCC] transition py-2">
-                Solutions
-                <ChevronDown
-                  size={16}
-                  className="transition-transform duration-300 group-open:rotate-180"
-                />
-              </summary>
-            </details>
-          </div>
+          {/* Pricing */}
+          <Link
+            to="/pricing"
+            onClick={() => setIsMenuOpen(false)}
+            className="py-2 border-b border-gray-100 block hover:text-[#756FCC]"
+          >
+            Pricing
+          </Link>
 
-
-          <div className=" flex items-center justify-between border-b border-gray-100 cursor-pointer text-[#292D34] 
-                hover:text-[#756FCC] active:text-[#756FCC] focus:text-[#756FCC] transition  py-2">Pricing</div>
+          {/* Demo */}
           <Link
             to="/demo"
-            className="flex items-center justify-between border-b border-gray-100 cursor-pointer text-[#292D34] 
-           hover:text-[#756FCC] active:text-[#756FCC] focus:text-[#756FCC] transition py-2"
-            onClick={() => setIsMenuOpen(false)}   // closes mobile menu
+            onClick={() => setIsMenuOpen(false)}
+            className="py-2 border-b border-gray-100 block hover:text-[#756FCC]"
           >
             Book a Demo
           </Link>
 
           {/* Mobile Buttons */}
           <div className="flex flex-col gap-3 pt-4">
-            <button className="w-full px-5 py-3 rounded-lg bg-[#756FCC] text-white shadow-sm hover:opacity-90 transition">
+            <button
+              onClick={() => {
+                goLogin();
+                setIsMenuOpen(false);
+              }}
+              className="w-full px-5 py-3 rounded-lg bg-[#756FCC] text-white shadow-sm hover:opacity-90 transition"
+            >
               Login
             </button>
-            <button className="w-full px-5 py-3 rounded-lg border border-[#756FCC] text-[#756FCC] hover:bg-[#756FCC] hover:text-white transition">
+
+            <button
+              onClick={() => {
+                goRegister();
+                setIsMenuOpen(false);
+              }}
+              className="w-full px-5 py-3 rounded-lg border border-[#756FCC] text-[#756FCC] hover:bg-[#756FCC] hover:text-white transition"
+            >
               Get Started
             </button>
           </div>
-
         </div>
       </div>
-
     </nav>
   );
 }

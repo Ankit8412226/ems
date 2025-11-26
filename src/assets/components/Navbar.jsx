@@ -1,5 +1,6 @@
 import { ChevronDown, Menu, X } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -63,7 +64,7 @@ export default function Navbar() {
               >
                 Support
               </a>
-             
+
               <a
                 onClick={() => window.location.href = "/finance-mgmt"}
                 className="block px-4 py-2 hover:text-[#756FCC] cursor-pointer"
@@ -79,9 +80,14 @@ export default function Navbar() {
           Solutions <ChevronDown size={16} />
         </div>
 
-        
+
         <div className="cursor-pointer hover:text-[#756FCC] transition">Pricing</div>
-        <div className="cursor-pointer hover:text-[#756FCC] transition">Book a Demo</div>
+        <Link
+          to="/demo"
+          className="cursor-pointer hover:text-[#756FCC] transition"
+        >
+          Book a Demo
+        </Link>
       </div>
 
       {/* Desktop Buttons */}
@@ -145,7 +151,7 @@ export default function Navbar() {
                   Support
                 </div>
 
-               
+
                 <div
                   onClick={() => window.location.href = "/finance-mgmt"}
                   className="px-4 py-2 cursor-pointer hover:bg-gray-100 hover:text-[#756FCC]"
@@ -170,11 +176,17 @@ export default function Navbar() {
             </details>
           </div>
 
-          
+
           <div className=" flex items-center justify-between border-b border-gray-100 cursor-pointer text-[#292D34] 
                 hover:text-[#756FCC] active:text-[#756FCC] focus:text-[#756FCC] transition  py-2">Pricing</div>
-          <div className=" flex items-center justify-between border-b border-gray-100 cursor-pointer text-[#292D34] 
-                hover:text-[#756FCC] active:text-[#756FCC] focus:text-[#756FCC] transition  py-2">Book a Demo</div>
+          <Link
+            to="/demo"
+            className="flex items-center justify-between border-b border-gray-100 cursor-pointer text-[#292D34] 
+           hover:text-[#756FCC] active:text-[#756FCC] focus:text-[#756FCC] transition py-2"
+            onClick={() => setIsMenuOpen(false)}   // closes mobile menu
+          >
+            Book a Demo
+          </Link>
 
           {/* Mobile Buttons */}
           <div className="flex flex-col gap-3 pt-4">

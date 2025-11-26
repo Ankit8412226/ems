@@ -25,6 +25,7 @@ import FinanceHero from "./assets/financemgmt/FinanceHero";
 import HRMSHero from "./assets/hrms/HrmsHero";
 import SupportHero from "./assets/support/SupportHero";
 import Demo from "./assets/demos/Demo";
+import AuthPage from "./assets/pages/AuthPage";
 
 const ProtectedRoute = ({ children }) => {
   const isAuthenticated = localStorage.getItem("isLoggedIn") === "true";
@@ -35,6 +36,14 @@ function App() {
   return (
     <Router>
       <Routes>
+        <Route
+          path="/auth"
+          element={
+            <div className="relative min-h-screen w-full overflow-x-hidden">
+              <AuthPage />
+            </div>
+          }
+        />
 
         {/* ===========================
             HOME PAGE ROUTE

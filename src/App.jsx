@@ -24,6 +24,8 @@ import ProjectFreeTrialSection from "./assets/projectmanagement/ProjectFreeTrial
 import FinanceHero from "./assets/financemgmt/FinanceHero";
 import HRMSHero from "./assets/hrms/HrmsHero";
 import SupportHero from "./assets/support/SupportHero";
+import Demo from "./assets/demos/Demo";
+import AuthPage from "./assets/pages/AuthPage";
 
 const ProtectedRoute = ({ children }) => {
   const isAuthenticated = localStorage.getItem("isLoggedIn") === "true";
@@ -34,6 +36,14 @@ function App() {
   return (
     <Router>
       <Routes>
+        <Route
+          path="/auth"
+          element={
+            <div className="relative min-h-screen w-full overflow-x-hidden">
+              <AuthPage />
+            </div>
+          }
+        />
 
         {/* ===========================
             HOME PAGE ROUTE
@@ -95,12 +105,12 @@ function App() {
                 <Navbar />
                 <ProjectHero />
                 <ProjectFeature />
-                <ProjectHowitWorks/>  
-                <ProjectFinance />   
+                <ProjectHowitWorks />
+                <ProjectFinance />
                 <ProjectAttendence />
-                <ProjectProfitable /> 
-                <ProjectBusiness />         
-                <ProjectFreeTrialSection /> 
+                <ProjectProfitable />
+                <ProjectBusiness />
+                <ProjectFreeTrialSection />
                 <Footer />
               </div>
 
@@ -129,12 +139,12 @@ function App() {
                 <Navbar />
                 <FinanceHero />
                 <ProjectFeature />
-                <ProjectHowitWorks/>  
-                <ProjectFinance />   
+                <ProjectHowitWorks />
+                <ProjectFinance />
                 <ProjectAttendence />
-                <ProjectProfitable /> 
-                <ProjectBusiness />         
-                <ProjectFreeTrialSection /> 
+                <ProjectProfitable />
+                <ProjectBusiness />
+                <ProjectFreeTrialSection />
                 <Footer />
               </div>
 
@@ -164,19 +174,19 @@ function App() {
                 <Navbar />
                 <HRMSHero />
                 <ProjectFeature />
-                <ProjectHowitWorks/>  
-                <ProjectFinance />   
+                <ProjectHowitWorks />
+                <ProjectFinance />
                 <ProjectAttendence />
-                <ProjectProfitable /> 
-                <ProjectBusiness />         
-                <ProjectFreeTrialSection /> 
+                <ProjectProfitable />
+                <ProjectBusiness />
+                <ProjectFreeTrialSection />
                 <Footer />
               </div>
 
             </div>
           }
         />
-          {/* ===========================
+        {/* ===========================
             Hrms PAGE
         ============================ */}
         <Route
@@ -198,15 +208,35 @@ function App() {
                 <Navbar />
                 <SupportHero />
                 <ProjectFeature />
-                <ProjectHowitWorks/>  
-                <ProjectFinance />   
+                <ProjectHowitWorks />
+                <ProjectFinance />
                 <ProjectAttendence />
-                <ProjectProfitable /> 
-                <ProjectBusiness />         
-                <ProjectFreeTrialSection /> 
+                <ProjectProfitable />
+                <ProjectBusiness />
+                <ProjectFreeTrialSection />
                 <Footer />
               </div>
 
+            </div>
+          }
+        />
+        <Route
+          path="/demo"
+          element={
+            <div className="relative min-h-screen w-full overflow-x-hidden">
+              <div className="fixed inset-0 -z-10">
+                <img
+                  src="/Grid_bg.svg"
+                  alt="grid background"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+
+              <div className="pt-20">
+                <Navbar />
+                <Demo />
+                <Footer />
+              </div>
             </div>
           }
         />

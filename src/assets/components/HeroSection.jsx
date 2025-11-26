@@ -1,34 +1,50 @@
 import { ArrowRight } from "lucide-react";
-
+import { useNavigate } from "react-router-dom";
 
 export default function HeroSection() {
+  const navigate = useNavigate();
+
+  const handleCTA = () => {
+    navigate("/auth?mode=login"); // redirects to login page
+  };
+
   return (
-    <section className="flex flex-col items-center text-center pt-20">
+    <section id="HeroSection" className="flex flex-col items-center text-center pt-20 relative px-4">
+
+      {/* Background Shape */}
+      <div className="">
+        <img
+          src="/Ellipse 492 (1).svg"
+          alt="bg-shape"
+          className="absolute top-[165px] left-[200px] rotate-90 -z-9"
+        />
+      </div>
 
       {/* Headline */}
-      <h1 className="text-5xl md:text-5xl font-poppins font-bold text-gray-900 leading-14">
-        Manage your Team, Tasks &
-        <br />
-        <span className="bg-linear-to-r from-[#C65CF4] to-[#96FFB2] text-transparent bg-clip-text">
+      <h1 className="text-5xl md:text-5xl font-poppins font-semibold text-gray-900 leading-14">
+        <span className="block">
+          Manage your Team, Tasks &amp;
+        </span>
+        <span className="block bg-linear-to-r from-[#C65CF4] to-[#96FFB2] text-transparent bg-clip-text">
           Projects in one place
         </span>
       </h1>
 
       {/* Subtext */}
       <p className="text-gray-500 mt-4 max-w-xl">
-        Lorem ipsum dolor sit amet consectetur. kshi uenmamet consectetur.
-        kshi uenmamet.
+        Lorem ipsum dolor sit amet consectetur. kshi uenmamet consectetur. kshi uenmamet.
       </p>
 
       {/* CTA Button */}
-      <button className="relative mt-8 flex items-center gap-2 px-6 py-3 rounded-xl bg-[#756FCC] text-white shadow-md hover:opacity-90 transition font-poppins font-medium
-  before:absolute before:inset-0 before:rounded-xl before:bg-[#96FFB2] before:blur-lg before:opacity-60 before:-z-10
-">
+      <button
+        onClick={handleCTA} 
+        className="relative mt-8 flex items-center gap-2 px-6 py-3 rounded-xl bg-[#756FCC] text-white shadow-md hover:opacity-90 transition font-poppins font-medium"
+      >
         Try for free
         <ArrowRight size={18} />
       </button>
 
-      {/* Dashboard Image Below */}
+      {/* Dashboard Image */}
       <div className="mt-2 max-w-6xl w-full px-4 pt-0">
         <img
           src="/Dash.png"

@@ -57,11 +57,11 @@ export default function ProjectFreeTrialSection() {
 
                     {/* Buttons */}
                     <div className="flex gap-4 mt-6">
-                        <button className="w-fit px-6 py-3 rounded-lg bg-[#756FCC] text-white shadow-sm hover:opacity-90 transition flex items-center gap-2 mt-2 md:mt-3">
+                        <button className="w-fit px-6 py-3 rounded-lg bg-[#756FCC] text-white shadow-sm hover:opacity-90 transition flex items-center gap-2 mt-2 md:mt-3 cursor-pointer">
                             <span>Try for free</span>
                             <ArrowRight size={18} />
                         </button>
-                        <button className="w-fit px-6 py-3 rounded-lg border border-[#756FCC] text-[#756FCC] shadow-sm hover:opacity-90 transition flex items-center gap-2 mt-2 md:mt-3 bg-transparent">
+                        <button className="w-fit px-6 py-3 rounded-lg border border-[#756FCC] text-[#756FCC] shadow-sm hover:opacity-90 transition flex items-center gap-2 mt-2 md:mt-3 bg-transparent cursor-pointer">
                             <span>Book a Demo</span>
                             <ArrowRight size={18} className="text-[#756FCC]" />
                         </button>

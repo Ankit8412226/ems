@@ -18,7 +18,7 @@ export default function ProjectHowitWorks() {
         <img
           src="./howitworks.png"
           alt="How it works"
-          className="w-full max-w-[900px] h-auto object-contain px-2"
+          className="w-full max-w-[900px] h-auto object-contain px-2 cursor-pointer"
         />
       </div>
     </div>

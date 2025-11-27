@@ -65,7 +65,7 @@ export default function FeaturesSection() {
                 border border-[#756FCC] 
                 hover:shadow-lg 
                 transition-shadow duration-300 
-                relative overflow-hidden
+                relative overflow-hidden cursor-pointer
                 shadow-[0_6px_10px_4px_rgba(112,79,230,0.10)]
               `}
             >

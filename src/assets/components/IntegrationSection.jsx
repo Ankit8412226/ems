@@ -28,7 +28,7 @@ export default function IntegrationSection() {
               key={i}
               className="bg-white w-full sm:w-[120px] h-[120px] rounded-[22px] border border-[#E5E5E5] flex items-center justify-center"
             >
-              <img src="./Vector.png" alt="integration-icon" className="w-14 h-14 object-contain" />
+              <img src="./Vector.png" alt="integration-icon" className="w-14 h-14 object-contain cursor-pointer" />
             </div>
           ))}
         </div>

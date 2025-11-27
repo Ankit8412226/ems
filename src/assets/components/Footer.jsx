@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function Footer() {
   return (
     <footer
@@ -10,9 +12,8 @@ export default function Footer() {
     >
       {/* Left Logo Column */}
       <div className="flex flex-col gap-4 min-w-[220px]">
-
         <img
-      src="/Orga Logo (1).svg"
+          src="/Orga Logo (1).svg"
           alt="logo"
           className="w-[120px] h-auto"
         />
@@ -29,9 +30,37 @@ export default function Footer() {
         </h3>
 
         <ul className="flex flex-col gap-2 text-[#1B223C] font-nunito text-[18px]">
-          <li>Book a Demo</li>
-          <li>Pricing</li>
-          <li>Contact Us</li>
+
+          <li>
+            <Link
+              to="/demo"
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              className="hover:text-[#756FCC]"
+            >
+              Book a Demo
+            </Link>
+          </li>
+
+          <li>
+            <Link
+              to="/pricing"
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              className="hover:text-[#756FCC]"
+            >
+              Pricing
+            </Link>
+          </li>
+
+          <li>
+            <Link
+              to="/contact"
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              className="hover:text-[#756FCC]"
+            >
+              Contact Us
+            </Link>
+          </li>
+
         </ul>
       </div>
 
@@ -42,10 +71,47 @@ export default function Footer() {
         </h3>
 
         <ul className="flex flex-col gap-2 text-[#1B223C] font-nunito text-[18px]">
-          <li>Project Management</li>
-          <li>HRMS</li>
-          <li>Finance Management</li>
-          <li>Support</li>
+
+          <li>
+            <Link
+              to="/project-management"
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              className="hover:text-[#756FCC]"
+            >
+              Project Management
+            </Link>
+          </li>
+
+          <li>
+            <Link
+              to="/hrms"
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              className="hover:text-[#756FCC]"
+            >
+              HRMS
+            </Link>
+          </li>
+
+          <li>
+            <Link
+              to="/finance-mgmt"
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              className="hover:text-[#756FCC]"
+            >
+              Finance Management
+            </Link>
+          </li>
+
+          <li>
+            <Link
+              to="/support"
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              className="hover:text-[#756FCC]"
+            >
+              Support
+            </Link>
+          </li>
+
         </ul>
       </div>
 
@@ -56,11 +122,40 @@ export default function Footer() {
         </h3>
 
         <ul className="flex flex-col gap-2 text-[#1B223C] font-nunito text-[18px]">
-          <li>Project Organizer</li>
-          <li>Online Project Board</li>
-          <li>Task board</li>
+
+          <li>
+            <Link
+              to="/solutions"
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              className="hover:text-[#756FCC]"
+            >
+              Project Organizer
+            </Link>
+          </li>
+
+          <li>
+            <Link
+              to="/solutions"
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              className="hover:text-[#756FCC]"
+            >
+              Online Project Board
+            </Link>
+          </li>
+
+          <li>
+            <Link
+              to="/solutions"
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              className="hover:text-[#756FCC]"
+            >
+              Task Board
+            </Link>
+          </li>
+
         </ul>
       </div>
+
     </footer>
   );
 }

@@ -23,7 +23,7 @@ export default function HowitWorks() {
         <img
           src="./howitworks.png"
           alt="How it works"
-          className="w-full max-w-[900px] sm:max-w-[750px] md:max-w-[900px] lg:max-w-[900px] h-auto object-contain mx-auto"
+          className="w-full max-w-[900px] sm:max-w-[750px] md:max-w-[900px] lg:max-w-[900px] h-auto object-contain mx-auto cursor-pointer"
         />
       </div>
     </div>

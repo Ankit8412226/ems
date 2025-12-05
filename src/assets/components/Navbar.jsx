@@ -72,16 +72,20 @@ export default function Navbar() {
         </div>
 
         {/* Solutions */}
-        <div className="flex items-center gap-1 cursor-pointer text-[#292D34] hover:text-[#756FCC] transition">
+        <Link to="/solutions" className="cursor-pointer hover:text-[#756FCC] transition">
           Solutions
-          <ChevronDown size={16} />
-        </div>
+        </Link>
+
 
         <Link to="/pricing" className="cursor-pointer hover:text-[#756FCC] transition">
           Pricing
         </Link>
 
-        <Link to="/demo" className="cursor-pointer hover:text-[#756FCC] transition">
+        <Link
+          to="/demo"
+          
+          className="cursor-pointer hover:text-[#756FCC] transition"
+        >
           Book a Demo
         </Link>
       </div>
@@ -90,14 +94,14 @@ export default function Navbar() {
       <div className="hidden md:flex items-center gap-4">
         <button
           onClick={goLogin}
-          className="px-5 py-2 rounded-lg bg-[#756FCC] text-white shadow-sm hover:opacity-90 transition"
+          className="px-5 py-2 rounded-lg bg-[#756FCC] text-white shadow-sm hover:opacity-90 transition cursor-pointer"
         >
           Login
         </button>
 
         <button
           onClick={goRegister}
-          className="px-5 py-2 rounded-lg border border-[#756FCC] text-[#756FCC] hover:bg-[#756FCC] hover:text-white transition"
+          className="px-5 py-2 rounded-lg border border-[#756FCC] text-[#756FCC] hover:bg-[#756FCC] hover:text-white transition cursor-pointer"
         >
           Get Started
         </button>
@@ -161,12 +165,19 @@ export default function Navbar() {
           </details>
 
           {/* Solutions */}
-          <details className="group border-b border-gray-100 pb-2">
+          {/* <details className="group border-b border-gray-100 pb-2">
             <summary className="flex items-center justify-between cursor-pointer text-[#292D34] hover:text-[#756FCC] py-2">
               Solutions
               <ChevronDown size={16} className="transition-transform duration-300 group-open:rotate-180" />
             </summary>
-          </details>
+          </details> */}
+          <Link
+            to="/solutions"
+            onClick={() => setIsMenuOpen(false)}
+            className="py-2 border-b border-gray-100 block hover:text-[#756FCC]"
+          >
+            Solutions
+          </Link>
 
           {/* Pricing */}
           <Link
@@ -178,13 +189,22 @@ export default function Navbar() {
           </Link>
 
           {/* Demo */}
-          <Link
+          {/* <Link
             to="/demo"
             onClick={() => setIsMenuOpen(false)}
             className="py-2 border-b border-gray-100 block hover:text-[#756FCC]"
           >
             Book a Demo
-          </Link>
+          </Link> */}
+          <Link
+  to="/demo"
+  onClick={() => {
+    setIsMenuOpen(false);
+  }}
+  className="py-2 border-b border-gray-100 block hover:text-[#756FCC]"
+>
+  Book a Demo
+</Link>
 
           {/* Mobile Buttons */}
           <div className="flex flex-col gap-3 pt-4">

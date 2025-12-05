@@ -26,6 +26,9 @@ import HRMSHero from "./assets/hrms/HrmsHero";
 import SupportHero from "./assets/support/SupportHero";
 import Demo from "./assets/demos/Demo";
 import AuthPage from "./assets/pages/AuthPage";
+import SolutionsPage from "./assets/solutions/SolutionsPage";
+import ScrollToTop from "./assets/components/ScrollToTop";
+
 
 const ProtectedRoute = ({ children }) => {
   const isAuthenticated = localStorage.getItem("isLoggedIn") === "true";
@@ -35,12 +38,26 @@ const ProtectedRoute = ({ children }) => {
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <Routes>
         <Route
           path="/auth"
           element={
             <div className="relative min-h-screen w-full overflow-x-hidden">
               <AuthPage />
+            </div>
+          }
+        />
+        <Route
+          path="/solutions"
+          element={
+            <div className="relative min-h-screen w-full overflow-x-hidden">
+
+              <div className="pt-0">
+                <SolutionsPage />
+                <Footer />
+              </div>
+              
             </div>
           }
         />

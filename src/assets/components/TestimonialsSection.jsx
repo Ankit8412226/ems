@@ -30,11 +30,11 @@ export default function TestimonialsSection() {
                 {/* ------------ ARROWS ------------ */}
                 <div className="flex justify-end gap-3 mt-10">
                     <button>
-                        <img src="/LeftArrow.png" alt="Left Arrow" />
+                        <img src="/LeftArrow.png" alt="Left Arrow" className="cursor-pointer" />
                     </button>
 
                     <button>
-                        <img src="/RightArrow.png" alt="Right Arrow" />
+                        <img src="/RightArrow.png" alt="Right Arrow" className="cursor-pointer" />
                     </button>
                 </div>
 
@@ -61,11 +61,11 @@ export default function TestimonialsSection() {
           <img
             src="/Avatar (1).png"
             alt="Avatar"
-            className="w-10 h-10 rounded-full object-cover"
+            className="w-10 h-10 rounded-full object-cover cursor-pointer"
           />
           <div>
-            <p className="font-semibold text-gray-900">Arefin Shuvo</p>
-            <p className="text-sm text-gray-500">CEO, Urbancompany</p>
+            <p className="font-semibold text-gray-900 cursor-pointer">Arefin Shuvo</p>
+            <p className="text-sm text-gray-500 cursor-pointer">CEO, Urbancompany</p>
           </div>
         </div>
       </div>

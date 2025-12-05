@@ -45,7 +45,7 @@ export default function ProjectBusiness() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 w-full">
 
          
-          <div className="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-6 cursor-pointer">
 
             
             <Card feature={features[0]} />
@@ -61,7 +61,7 @@ export default function ProjectBusiness() {
           </div>
 
        
-          <div className="row-span-2">
+          <div className="row-span-2 cursor-pointer">
             <Card feature={features[3]} isLarge />
           </div>
 
@@ -78,7 +78,7 @@ function Card({ feature, isLarge }) {
       className={`
         bg-white rounded-3xl p-8 border border-[#756FCC]
         hover:shadow-lg transition-shadow duration-300
-        relative overflow-hidden shadow-[0_6px_10px_4px_rgba(112,79,230,0.10)]
+        relative overflow-hidden shadow-[0_6px_10px_4px_rgba(112,79,230,0.10)] cursor-pointer
         ${isLarge ? "h-full flex flex-col justify-between" : ""}
       `}
     >
@@ -101,7 +101,7 @@ function Card({ feature, isLarge }) {
 
       
       {isLarge && (
-        <button className="mt-6 w-fit px-6 py-3 rounded-lg bg-[#756FCC] text-white shadow-sm hover:opacity-90 transition flex items-center gap-2">
+        <button className="mt-6 w-fit px-6 py-3 rounded-lg bg-[#756FCC] text-white shadow-sm hover:opacity-90 transition flex items-center gap-2 cursor-pointer">
           Try for free →
         </button>
       )}

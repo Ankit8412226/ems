@@ -50,7 +50,7 @@ export default function ProjectFeature() {
         <div className="flex flex-col items-center">
 
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full cursor-pointer">
             {features.slice(0, 3).map((feature, index) => (
               <div
                 key={index}
@@ -59,7 +59,7 @@ export default function ProjectFeature() {
                   border border-[#756FCC]
                   hover:shadow-lg
                   transition-shadow duration-300
-                  relative overflow-hidden
+                  relative overflow-hidden cursor-pointer
                   shadow-[0_6px_10px_4px_rgba(112,79,230,0.10)]
                 "
               >
@@ -89,7 +89,7 @@ export default function ProjectFeature() {
               className="
                 rounded-3xl p-8 border border-[#756FCC]
                 hover:shadow-lg transition-shadow duration-300
-                relative overflow-hidden
+                relative overflow-hidden cursor-pointer
                 shadow-[0_6px_10px_4px_rgba(112,79,230,0.10)]
                 max-w-[380px] w-full bg-white
               "

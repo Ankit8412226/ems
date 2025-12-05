@@ -38,7 +38,7 @@ export default function HeroSection() {
       {/* CTA Button */}
       <button
         onClick={handleCTA} 
-        className="relative mt-8 flex items-center gap-2 px-6 py-3 rounded-xl bg-[#756FCC] text-white shadow-md hover:opacity-90 transition font-poppins font-medium"
+        className="relative mt-8 flex items-center gap-2 px-6 py-3 rounded-xl bg-[#756FCC] text-white shadow-md hover:opacity-90 transition font-poppins font-medium cursor-pointer"
       >
         Try for free
         <ArrowRight size={18} />
